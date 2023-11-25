@@ -23,6 +23,15 @@ pipeline {
       }
     }
 
+    stage('Build Docker Image') {
+      steps {
+        script {
+          def customImage = docker.build("${registry}:${env.BUILD_ID}")
+        }
+
+      }
+    }
+
   }
   environment {
     registry = 'aciura86/test'
