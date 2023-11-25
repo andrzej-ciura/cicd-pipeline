@@ -17,6 +17,12 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh 'scripts/test.sh'
+      }
+    }
+
   }
   environment {
     registry = 'aciura86/test'
