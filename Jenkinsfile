@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'sh echo "Test"'
+        sh 'scripts/build.sh'
       }
     }
 
