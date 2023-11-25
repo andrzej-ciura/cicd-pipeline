@@ -32,6 +32,16 @@ pipeline {
       }
     }
 
+    stage('Push Docker Image') {
+      steps {
+        script {
+            docker.withRegistry('','dockerhub_id'){
+            docker.image("${registry}:${env.BUILD_ID}").push('latest')
+            docker.image("${registry}:${env.BUILD_ID}").push("${env.BUILD_ID}")
+        }
+
+      }
+    }
   }
   environment {
     registry = 'aciura86/test'
